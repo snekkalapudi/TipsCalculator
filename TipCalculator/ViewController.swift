@@ -46,6 +46,19 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        var defaults = NSUserDefaults.standardUserDefaults()
+        var theme = defaults.boolForKey("theme")
+        
+        if (theme) {
+            self.view.backgroundColor = UIColor.lightGrayColor()
+        } else {
+            self.view.backgroundColor = UIColor.whiteColor()
+        }
+        
+    }
+    
     
     @IBAction func onEditingChanged(sender: AnyObject) {
        

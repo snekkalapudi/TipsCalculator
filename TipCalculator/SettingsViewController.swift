@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var colorTheme: UISwitch!
     @IBOutlet weak var tipControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +39,19 @@ class SettingsViewController: UIViewController {
         println("view will appear")
         
         var defaults = NSUserDefaults.standardUserDefaults()
-        // var stringValue = defaults.objectForKey("some_key_that_you_choose") as String
         var intValue = defaults.integerForKey("defaultTipSegmentIndex")
+        var theme = defaults.boolForKey("theme")
         
         println(intValue)
         tipControl.selectedSegmentIndex = intValue
+        
+        if (theme) {
+            self.view.backgroundColor = UIColor.lightGrayColor()
+            colorTheme.setOn(true, animated: false)
+        } else {
+            self.view.backgroundColor = UIColor.whiteColor()
+            colorTheme.setOn(false, animated: false)
+        }
     }
     
 
@@ -63,11 +72,26 @@ class SettingsViewController: UIViewController {
     @IBAction func changeDefaultTipPercentage(sender: AnyObject) {
        
         var defaults = NSUserDefaults.standardUserDefaults()
-       // defaults.setObject("some_string_to_save", forKey: "some_key_that_you_choose")
         defaults.setInteger(tipControl.selectedSegmentIndex, forKey: "defaultTipSegmentIndex")
         defaults.synchronize()
         
         print(tipControl.selectedSegmentIndex)
     }
  
+    @IBAction func themeSwitch(sender: AnyObject) {
+        println(colorTheme)
+        
+        var defaults = NSUserDefaults.standardUserDefaults()
+        
+        if colorTheme.on {
+             self.view.backgroundColor = UIColor.lightGrayColor()
+            defaults.setBool(true, forKey: "theme")
+        } else {
+             self.view.backgroundColor = UIColor.whiteColor()
+             defaults.setBool(false, forKey: "theme")
+        }
+        
+         defaults.synchronize()
+        
+    }
 }
