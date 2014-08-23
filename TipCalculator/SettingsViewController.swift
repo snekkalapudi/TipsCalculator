@@ -34,6 +34,15 @@ class SettingsViewController: UIViewController {
         
     }
     
+    
+    func colorize (hex: Int, alpha: Double = 1.0) -> UIColor {
+        let red = Double((hex & 0xFF0000) >> 16) / 255.0
+        let green = Double((hex & 0xFF00) >> 8) / 255.0
+        let blue = Double((hex & 0xFF)) / 255.0
+        var color: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
+        return color
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         println("view will appear")
@@ -46,7 +55,7 @@ class SettingsViewController: UIViewController {
         tipControl.selectedSegmentIndex = intValue
         
         if (theme) {
-            self.view.backgroundColor = UIColor.lightGrayColor()
+            self.view.backgroundColor = colorize( 0xFFCC66, alpha:1.0)
             colorTheme.setOn(true, animated: false)
         } else {
             self.view.backgroundColor = UIColor.whiteColor()
@@ -84,7 +93,7 @@ class SettingsViewController: UIViewController {
         var defaults = NSUserDefaults.standardUserDefaults()
         
         if colorTheme.on {
-             self.view.backgroundColor = UIColor.lightGrayColor()
+             self.view.backgroundColor = colorize( 0xFFCC66, alpha:1.0)
             defaults.setBool(true, forKey: "theme")
         } else {
              self.view.backgroundColor = UIColor.whiteColor()

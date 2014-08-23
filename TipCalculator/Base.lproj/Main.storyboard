@@ -82,7 +82,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="bRQ-Y1-Ire" appends="YES" id="5BJ-ck-OE6"/>
@@ -115,7 +115,7 @@
         <scene sceneID="zOZ-jq-xYe">
             <objects>
                 <viewController id="yNb-hp-b07" customClass="SettingsViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="settingsViewController" id="AI6-Mj-duO" customClass="UIActionShee">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" restorationIdentifier="settingsViewController" id="AI6-Mj-duO" customClass="UIActionShee">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -155,7 +155,7 @@
                                 </connections>
                             </switch>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.36092436269658368" green="0.91092236951440375" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="KM4-ad-C85">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="LSY-J9-k4P">

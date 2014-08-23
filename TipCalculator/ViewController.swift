@@ -52,11 +52,19 @@ class ViewController: UIViewController {
         var theme = defaults.boolForKey("theme")
         
         if (theme) {
-            self.view.backgroundColor = UIColor.lightGrayColor()
+            self.view.backgroundColor = colorize( 0xFFCC66, alpha:1.0)
         } else {
             self.view.backgroundColor = UIColor.whiteColor()
         }
         
+    }
+    
+    func colorize (hex: Int, alpha: Double = 1.0) -> UIColor {
+        let red = Double((hex & 0xFF0000) >> 16) / 255.0
+        let green = Double((hex & 0xFF00) >> 8) / 255.0
+        let blue = Double((hex & 0xFF)) / 255.0
+        var color: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
+        return color
     }
     
     
